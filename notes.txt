@@ -1,0 +1,121 @@
+Q: How are messages sent and delivered?
+A: Messages are sent and delivered using the WebSocket protocol
+
+Q: Which identifiers from the manual installation code snippet are needed for the
+connection?
+A:
+    "project_public_key": "ruyp05soezrqaaboosg6jtkz41zas8bf" ?
+sid ?
+5091279ec8afd6570468  - is that the identifier?
+
+Q: What is the messages’ format?
+A:
+
+0 (tidio) init {
+    "sid": "lpjtrDJvoRY0kTwEBN14"": "5fc74848489d4b2da67d4dd25d8d6046",
+    ...
+}
+40 (client) ack
+40 (tidio) ack {
+    "sid": "zO692Y9yzV3ceThZBN16"
+}
+420 (client) register visitor [
+  "visitorRegister",
+  {
+    "id": "5fc74848489d4b2da67d4dd25d8d6046",
+    "originalVisitorId": "5fc74848489d4b2da67d4dd25d8d6046",
+    "distinct_id": null,
+    "country": null,
+    "name": "cooc@bongo.com",
+    "city": null,
+    "browser_session_id": "",
+    "created": 1730972880,
+    "email": "cooc@bongo.com",
+    "project_public_key": "ruyp05soezrqaaboosg6jtkz41zas8bf",
+    "phone": "",
+    "ip": null,
+    "lang": "en-us",
+    "browser": "Chrome",
+    "browser_version": 126,
+    "url": "http://127.0.0.1:8000/",
+    "refer": "",
+    "os_name": "OS X",
+    "os_version": "",
+    "screen_width": 2560,
+    "screen_height": 1440,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0",
+    "timezone": "Asia/Jerusalem",
+    "mobile": false,
+    "is_chat_on_site": false,
+    "wd": "t",
+    "emailConsent": {
+      "value": "unsubscribed",
+      "setBy": "user",
+      "date": 1730972912,
+      "visitorIp": "185.217.68.137",
+      "operatorId": null,
+      "personId": "4cb7ef2b-5ff8-4af4-a082-7e7846585a22"
+    },
+    "sandbox": false,
+    "isDesignMode": false,
+    "isProjectOnline": true,
+    "cache_hash": "a3e068fd68cca3ef59b0bd724168e219",
+    "after_reconnect": false
+  }
+]
+2 (tidio) alive?
+3 (client) yes
+
+
+client -> tidio:
+[
+  "visitorNewMessage",
+  {
+    "message": "sup2",
+    "messageId": "78bb4b08-3916-4b08-99a8-6e55e80f8ba5",
+    "url": "http://127.0.0.1:8000/",
+    "visitorId": "5fc74848489d4b2da67d4dd25d8d6046",
+    "projectPublicKey": "ruyp05soezrqaaboosg6jtkz41zas8bf",
+    "device": "desktop"
+  }
+]
+
+
+tidio -> client:
+42
+[
+  "newMessage",
+  {
+    "hash": "a61ca260-986f-4e20-9e6f-e7e179d2f18d",
+    "connection_uuid": "d6e30374-16c1-447c-8548-f9d78c77470c",
+    "data": {
+      "is_waiting_for_answer": false,
+      "is_ai_assistant": false,
+      "auto": "0",
+      "browser_session_id": "",
+      "channel": "chat",
+      "connection_uuid": "d6e30374-16c1-447c-8548-f9d78c77470c",
+      "id": 8495534999,
+      "bot_id": null,
+      "message": {
+        "type": "text",
+        "message": "good2",
+        "buttons": [],
+        "quick_replies": []
+      },
+      "operator_id": 3555117,
+      "project_public_key": "ruyp05soezrqaaboosg6jtkz41zas8bf",
+      "time_displayed": 0,
+      "time_sent": 1730973123,
+      "type": "operator",
+      "visitor_email": "cooc@bongo.com",
+      "visitor_id": "5fc74848489d4b2da67d4dd25d8d6046",
+      "rating_id": null,
+      "metadata": null,
+      "department_id": 2850927,
+      "chat_bot_name": null,
+      "chat_bot_id": null
+    }
+  }
+]
+
